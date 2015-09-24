@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        font-family: arial, sans-serif;
+        height: 4000px;
+        text-align: center;
+        width: 960px;
+      }
+
+      .gradient-bg {
+        background-image: url("img/bg-gradient.png");
+        background-repeat: no-repeat;
+        background-size: auto 600px;
+        background-position: top center;
+        background-attachment: fixed; 
+        
+        overflow: hidden;
+        position: relative;
+        height: 600px;
+        
+      }
+
+      .back-cloud {
+        background-image: url("img/back-cloud.png");
+        background-repeat: no-repeat;
+
+        margin-left: 80px;
+        position: absolute;
+        height: 227px;
+        width: 388px;
+      }
+
+      .logo {
+        background-image: url("img/logo.png");
+        background-repeat: no-repeat;
+        
+        left: 50%;
+        margin-top: -90px;
+        margin-left: -215px;
+        position: absolute;
+        top: 50%;
+        height: 108px;
+        width: 406px;
+      }
+
+      .fore-cloud {
+        background-image: url("img/fore-cloud.png");
+        background-repeat: no-repeat;
+
+        left: 50%;
+        top: 220px;
+        margin-left: 100px;
+        position: absolute;
+        height: 127px;
+        width: 188px;
+      }
+
+      .doug {
+        background-image: url("img/doug.png");
+        background-repeat: no-repeat;
+
+        bottom: -300px;
+        left: 50%;
+        margin-left: 100px;
+        position: absolute;
+        height: 500px;
+        width: 315px;
+      }
+
+    </style>
+    
+    <script src="js/jquery-2.1.4.js"></script>
+    <script>
+      $(window).scroll(function () {
+        var wScroll = $(this).scrollTop();
+
+        $('.logo').css({
+          'transform' : 'translate(0px, '+ wScroll/2 +'%)'
+        });
+
+        $('.back-cloud').css({
+          'transform' : 'translate(0px, '+ wScroll/3 +'%)'
+        });
+
+        $('.fore-cloud').css({
+          'transform' : 'translate(0px, '+ wScroll/4 +'%)'
+        });
+
+        $('.doug').css({
+          'transform' : 'translate(0px, -'+ wScroll/30 +'%)'
+        });
+      });
+
+
+
+    </script>  
+  </head>
+
+  <body>
+    <header class="gradient-bg">
+      <div class="back-cloud"></div>
+      <div class="logo"></div>
+      <div class="fore-cloud"></div>
+      <div class="doug"></div>
+    </header>
+    
+    <div class="content">
+      <h1>Parallax Effects</h1>
+      <p>Trying out some cool parallax effects</p>
+    </div>
+  </body>
+
+</html>

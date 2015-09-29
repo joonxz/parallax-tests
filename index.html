@@ -5,7 +5,7 @@
     <style>
       body {
         font-family: arial, sans-serif;
-        height: 4000px;
+        margin:0 auto;
         text-align: center;
         width: 960px;
       }
@@ -70,22 +70,59 @@
         width: 315px;
       }
 
+      table, table td, table tr {
+        border: 0;
+        border-spacing: 0;  
+        padding: 0;
+      }
+
+      table td {
+        padding: 10px;
+        position: relative;
+
+        transition: all 0.2s ease-in
+      }
+
     </style>
     
     <script src="js/jquery-2.1.4.js"></script>
     <script>
       $(function () {
 
-        $('.parallax div[data-parallax]').each(function () {
+        $('.parallax').each(function () {
           var el = this;
 
           $(window).scroll(function () {
             var wScroll = $(this).scrollTop();
-            var paraValue = $(el).data('parallax');
-            
-            $(el).css({
-              'transform' : 'translate(0px, '+ wScroll/paraValue +'%)'
+
+
+
+            $('div[data-parallax]').each(function () {
+              var paraValue = $(this).data('parallax');
+
+              $(this).css({
+                'transform' : 'translate(0px, '+ wScroll/paraValue +'%)'
+              });
             });
+            
+            $('.landing td[data-parallax-land-x]').each(function () {
+                var x = $(this).data('parallax-land-x');
+                var y = $(this).data('parallax-land-y');
+
+                $(this).css({
+                  'transform': 'translate(' + x + 'px,' + y + 'px)',
+                  'opacity': 0
+                });
+            });
+            
+            if (wScroll > $('.landing').offset().top - ($(window).height() / 1.5) ) {              
+              
+              $('td[data-parallax-land-x]').css({
+                'transform': 'translate(' + 0 + 'px,' + 0 + 'px)',
+                'opacity': 1
+              });
+            };
+
           });
         });
                
@@ -104,12 +141,28 @@
  
     <div class="content">
       <h1>Parallax Effects</h1>
-      <p>Trying out some cool parallax effects</p>
+      <p>The above effect is known as the original parallax</p>
 
+      <h2>Landing Elements</h2>
+      <p>The elements land in as you scroll</p>
+      <table class="parallax landing">
+        <tr>
+          <td data-parallax-land-x="0" data-parallax-land-y="-100"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="0" data-parallax-land-y="-130"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="0" data-parallax-land-y="-160"><img src="http://placehold.it/300x300" alt=""></td>
+        </tr>
+        <tr>
+          <td data-parallax-land-x="-50" data-parallax-land-y="100"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="-50" data-parallax-land-y="130"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="-50" data-parallax-land-y="160"><img src="http://placehold.it/300x300" alt=""></td>
+        </tr>
+        <tr>
+          <td data-parallax-land-x="-50" data-parallax-land-y="-100"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="-50" data-parallax-land-y="-130"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="-50" data-parallax-land-y="-160"><img src="http://placehold.it/300x300" alt=""></td>
+        </tr>
+      </table>
       
-      
-
-
     </div>
   </body>
 

@@ -74,42 +74,42 @@
     
     <script src="js/jquery-2.1.4.js"></script>
     <script>
-      $(window).scroll(function () {
-        var wScroll = $(this).scrollTop();
+      $(function () {
 
-        $('.logo').css({
-          'transform' : 'translate(0px, '+ wScroll/2 +'%)'
-        });
+        $('.parallax div[data-parallax]').each(function () {
+          var el = this;
 
-        $('.back-cloud').css({
-          'transform' : 'translate(0px, '+ wScroll/3 +'%)'
+          $(window).scroll(function () {
+            var wScroll = $(this).scrollTop();
+            var paraValue = $(el).data('parallax');
+            
+            $(el).css({
+              'transform' : 'translate(0px, '+ wScroll/paraValue +'%)'
+            });
+          });
         });
-
-        $('.fore-cloud').css({
-          'transform' : 'translate(0px, '+ wScroll/4 +'%)'
-        });
-
-        $('.doug').css({
-          'transform' : 'translate(0px, -'+ wScroll/30 +'%)'
-        });
+               
       });
-
-
 
     </script>  
   </head>
 
   <body>
-    <header class="gradient-bg">
-      <div class="back-cloud"></div>
-      <div class="logo"></div>
-      <div class="fore-cloud"></div>
-      <div class="doug"></div>
+    <header class="parallax gradient-bg">
+      <div data-parallax="3" class="back-cloud"></div>
+      <div data-parallax="2" class="logo"></div>
+      <div data-parallax="5" class="fore-cloud"></div>
+      <div data-parallax="-40" class="doug"></div>
     </header>
-    
+ 
     <div class="content">
       <h1>Parallax Effects</h1>
       <p>Trying out some cool parallax effects</p>
+
+      
+      
+
+
     </div>
   </body>
 

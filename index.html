@@ -69,20 +69,49 @@
         height: 500px;
         width: 315px;
       }
-
-      table, table td, table tr {
-        border: 0;
-        border-spacing: 0;  
-        padding: 0;
+      
+      .row, .col {
+        float: left;
       }
 
-      table td {
-        padding: 10px;
+      figure {
+        margin: 10px;
+        overflow: hidden;
         position: relative;
 
-        transition: all 0.3s ease-in
+        transition: all 0.3s ease-in-out;        
+      }
+        
+      figcaption {
+        background-color: green;
+        bottom: 20px;
+        color: #fff;
+        display: block;
+        padding:5px;
+        position: absolute;
+        
+        left:-100%;
       }
       
+      figure img {
+        display: block;
+      }
+
+      figure img, figcaption {
+        transition: all 0.1s ease-in-out;
+      }
+      
+      figure:hover {
+        cursor: pointer;
+      }
+
+      figure:hover figcaption {
+        left: 0%;
+      }
+
+      figure:hover img {
+        transform: scale(1.1);
+      }
 
       /* Periscope */
       .periscope {
@@ -120,7 +149,7 @@
 
 
             // --------------- Landing Functions ----------------------
-            $('.landing td[data-parallax-land-x]').each(function () {
+            $('.landing figure[data-parallax-land-x]').each(function () {
               var x = $(this).data('parallax-land-x');
               var y = $(this).data('parallax-land-y');
               var el = $(this);
@@ -168,47 +197,55 @@
 
       <h2>Landing Elements</h2>
       <p>The elements land in as you scroll</p>
-      <table class="parallax landing">
-        <tr>
-          <td data-parallax-land-x="0" data-parallax-land-y="-100"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="-130"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="-160"><img src="http://placehold.it/300x300" alt=""></td>
-        </tr>
-        <tr>
-          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
-        </tr>
-        <tr>
-          <td data-parallax-land-x="0" data-parallax-land-y="100"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="130"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="160"><img src="http://placehold.it/300x300" alt=""></td>
-        </tr>
-      </table>
+
+      <div class="parallax landing row">
+        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-100">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+      </div>
+
+      <div class="parallax landing row">
+        <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+        <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+        <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+      </div>
+
+      <div class="parallax landing row">
+        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="100">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="130">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="160">
+          <img src="http://placehold.it/300x300" alt="">
+          <figcaption>Caption that says something</figcaption>
+        </figure>
+      </div>
 
       <h2>Periscope</h2>
       <p>Not exactly parallax but has a feeling of it</p>
       <div class="periscope"></div>
-      
-      <h2>Landing Elements</h2>
-      <p>The elements land in as you scroll</p>
-      <table class="parallax landing">
-        <tr>
-          <td data-parallax-land-x="0" data-parallax-land-y="-100"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="-130"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="-160"><img src="http://placehold.it/300x300" alt=""></td>
-        </tr>
-        <tr>
-          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
-        </tr>
-        <tr>
-          <td data-parallax-land-x="0" data-parallax-land-y="100"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="130"><img src="http://placehold.it/300x300" alt=""></td>
-          <td data-parallax-land-x="0" data-parallax-land-y="160"><img src="http://placehold.it/300x300" alt=""></td>
-        </tr>
-      </table>
 
     </div>
   </body>

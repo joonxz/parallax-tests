@@ -80,9 +80,22 @@
         padding: 10px;
         position: relative;
 
-        transition: all 0.2s ease-in
+        transition: all 0.3s ease-in
       }
+      
 
+      /* Periscope */
+      .periscope {
+        background-image: url('http://placehold.it/300x500');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        border: 1px solid #000;
+        border-radius: 50%;
+        margin: 0 auto;
+        height: 300px;
+        width: 300px;
+      }
     </style>
     
     <script src="js/jquery-2.1.4.js"></script>
@@ -130,8 +143,7 @@
 
             });
             
-            //---------------------- The Periscope ----------------------
-            
+
 
 
           });
@@ -173,7 +185,31 @@
           <td data-parallax-land-x="0" data-parallax-land-y="160"><img src="http://placehold.it/300x300" alt=""></td>
         </tr>
       </table>
+
+      <h2>Periscope</h2>
+      <p>Not exactly parallax but has a feeling of it</p>
+      <div class="periscope"></div>
       
+      <h2>Landing Elements</h2>
+      <p>The elements land in as you scroll</p>
+      <table class="parallax landing">
+        <tr>
+          <td data-parallax-land-x="0" data-parallax-land-y="-100"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="0" data-parallax-land-y="-130"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="0" data-parallax-land-y="-160"><img src="http://placehold.it/300x300" alt=""></td>
+        </tr>
+        <tr>
+          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="-100" data-parallax-land-y="0"><img src="http://placehold.it/300x300" alt=""></td>
+        </tr>
+        <tr>
+          <td data-parallax-land-x="0" data-parallax-land-y="100"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="0" data-parallax-land-y="130"><img src="http://placehold.it/300x300" alt=""></td>
+          <td data-parallax-land-x="0" data-parallax-land-y="160"><img src="http://placehold.it/300x300" alt=""></td>
+        </tr>
+      </table>
+
     </div>
   </body>
 

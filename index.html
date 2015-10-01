@@ -8,6 +8,7 @@
         margin:0 auto;
         text-align: center;
         width: 960px;
+        height: 4000px;
       }
 
       .gradient-bg {
@@ -116,15 +117,63 @@
       /* Periscope */
       .periscope {
         background-image: url('http://placehold.it/300x500');
-        background-repeat: no-repeat;
-        background-position: center;
+        background-repeat: repeat-y;
+        background-position: center 0px;
         background-attachment: fixed;
         border: 1px solid #000;
         border-radius: 50%;
+        overflow: hidden;
         margin: 0 auto;
         height: 300px;
         width: 300px;
       }
+
+      .tint {
+        align-items: center;
+        color: #fff;
+        display: flex;
+        opacity: 0;
+        height: 100%;
+        position: relative;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .promo-text {
+        position: relative;
+        z-index: 5;
+      }
+
+      .promo-text h3 {
+        font-weight: 100;
+        font-size: 28px;
+        margin: 0;
+        text-transform: uppercase;
+      }
+      
+      .promo-text p {
+        font-size: 12px;
+        margin: 10px 0;
+      }
+      
+      .promo-text .cta-button {
+        border: 1px solid #fff;
+        color: #fff;
+        display: block;
+        font-size: 20px;
+        font-weight: 100;
+        padding: 5px 20px;
+        text-decoration: none;
+        -webkit-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .promo-text .cta-button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+  
     </style>
     
     <script src="js/jquery-2.1.4.js"></script>
@@ -159,21 +208,28 @@
                   'transform': 'translate(' + x + 'px,' + y + 'px)',
                   'opacity': 0
                 });
-              };
-
-              if (wScroll > $('.landing').offset().top - ($(window).height() / 1.5) ) {              
-              
+              } else {
                 el.css({
                   'transform': 'translate(' + 0 + 'px,' + 0 + 'px)',
                   'opacity': 1
                 });
-
-              };
+              }
 
             });
-            
 
+            // ------------------ Promoscope ---------------------------
+            if (wScroll > ($('.periscope').offset().top - $(window).height())) {
 
+              $('.periscope').css({
+                'background-position': 'center,' - (wScroll - $('.periscope').offset().top) +'px'
+              });
+
+              var opacity = wScroll * (.0001 * 5);
+              console.log(wScroll, opacity);
+              $('.tint').css({
+                'opacity': opacity
+              });
+            }
 
           });
         });
@@ -245,7 +301,16 @@
 
       <h2>Periscope</h2>
       <p>Not exactly parallax but has a feeling of it</p>
-      <div class="periscope"></div>
+      <div class="periscope">
+        <div class="tint">
+          <div class="promo-text">
+            <h3>Tuxedo</h3>
+            <p>Gray, Slim, Authentic Italian worn suit</p>
+            <a href="#" class="cta-button">Shop Now</a>
+          </div>
+          
+        </div>
+      </div>
 
     </div>
   </body>

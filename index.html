@@ -75,8 +75,11 @@
         float: left;
       }
 
-      figure {
+      .col {
         margin: 10px;
+      }
+
+      figure {
         overflow: hidden;
         position: relative;
 
@@ -137,6 +140,10 @@
         position: relative;
         justify-content: center;
         z-index: 2;
+
+        -webkit-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
       }
 
       .promo-text {
@@ -173,6 +180,28 @@
         background-color: #fff;
         color: #000;
       }
+      
+      .floating {
+        position: relative;
+        width: 100%;
+      }
+
+      .floating-left {
+        -webkit-transform: translateX(-50px);
+        -ms-transform: translateX(-50px);
+        -o-transform: translateX(-50px);
+        transform: translateX(-50px);
+      }
+
+      .floating-right {
+        -webkit-transform: translateX(50px);
+        -ms-transform: translateX(50px);
+        -o-transform: translateX(50px);
+        transform: translateX(50px);
+      }
+
+      .floating-middle {
+       }
   
     </style>
     
@@ -218,14 +247,16 @@
             });
 
             // ------------------ Promoscope ---------------------------
-            if (wScroll > ($('.periscope').offset().top - $(window).height())) {
+            if (wScroll > ($('.periscope').offset().top - $(window).height()/2 )) {
 
               $('.periscope').css({
                 'background-position': 'center,' - (wScroll - $('.periscope').offset().top) +'px'
               });
 
-              var opacity = wScroll * (.0001 * 5);
+              var opacity = wScroll * .00055;
+              
               console.log(wScroll, opacity);
+
               $('.tint').css({
                 'opacity': opacity
               });
@@ -308,7 +339,24 @@
             <p>Gray, Slim, Authentic Italian worn suit</p>
             <a href="#" class="cta-button">Shop Now</a>
           </div>
-          
+        </div>
+      </div>
+
+      <h2>Floating Elements with scroll</h2>
+      <div class="parallax floating row">
+        <div class="floating-left col">
+          <img src="http://placehold.it/300x100" alt="">
+          <p>Yep these are floating elements</p>
+        </div>
+
+        <div class="floating-middle col">
+          <img src="http://placehold.it/300x100" alt="">
+          <p>Yep these are floating elements</p>
+        </div>
+        
+        <div class="floating-right col">
+          <img src="http://placehold.it/300x100" alt="">
+          <p>Yep these are floating elements</p>
         </div>
       </div>
 

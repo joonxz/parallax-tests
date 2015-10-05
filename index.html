@@ -5,10 +5,19 @@
     <style>
       body {
         font-family: arial, sans-serif;
-        margin:0 auto;
         text-align: center;
+        margin: 0;
+      }
+      
+      .wrapper {
+        background-color: #fff;
+        position: relative;
+        z-index: 2;
+      }
+
+      .content {
+        margin:0 auto 350px;
         width: 960px;
-        height: 4000px;
       }
 
       .gradient-bg {
@@ -70,6 +79,14 @@
         height: 500px;
         width: 315px;
       }
+
+      .clearfix:after {
+        content: "."; 
+        visibility: hidden; 
+        display: block; 
+        height: 0; 
+        clear: both;
+      }
       
       .row, .col {
         float: left;
@@ -77,6 +94,16 @@
 
       .col {
         margin: 10px;
+      }
+
+      .col-4 {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        margin: 0;
+        padding: 10px;
+        width: 25%;
       }
 
       figure {
@@ -183,26 +210,45 @@
       
       .floating {
         position: relative;
+      }
+
+      footer {
+        background-color: #939393;
+        bottom: 0;
+        color: #fff;
+        clear: both;
+        position: fixed;
+        text-align: left;
         width: 100%;
+        z-index: 1;
+      }
+      
+      footer .row {
+        background-color: #939393;
+        position: relative;
+        left: 50%;
+        width: 960px;
+        
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
       }
 
-      .floating-left {
-/*        -webkit-transform: translateX(-50px);
-        -ms-transform: translateX(-50px);
-        -o-transform: translateX(-50px);
-        transform: translateX(-50px);*/
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      ul {
+        padding-left: 0;
       }
 
-      .floating-right {
-       /* -webkit-transform: translateX(50px);
-        -ms-transform: translateX(50px);
-        -o-transform: translateX(50px);
-        transform: translateX(50px);*/
+      li {
+        list-style-type: none;
       }
 
-      .floating-middle {
-       }
-  
+
     </style>
     
     <script src="js/jquery-2.1.4.js"></script>
@@ -291,89 +337,126 @@
       <div data-parallax="-40" class="doug"></div>
     </header>
  
-    <div class="content">
-      <h1>Parallax Effects</h1>
-      <p>The above effect is known as the original parallax</p>
+    <div class="wrapper">
+      <div class="content">
+        <h1>Parallax Effects</h1>
+        <p>The above effect is known as the original parallax</p>
 
-      <h2>Landing Elements</h2>
-      <p>The elements land in as you scroll</p>
+        <div class="landing-elements-wrap clearfix">
+          <h2>Landing Elements</h2>
+          <p>The elements land in as you scroll</p>
 
-      <div class="parallax landing row">
-        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-100">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-      </div>
+          <div class="parallax landing row">
+            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-100">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+          </div>
 
-      <div class="parallax landing row">
-        <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-        <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-        <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-      </div>
+          <div class="parallax landing row">
+            <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+          </div>
 
-      <div class="parallax landing row">
-        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="100">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="130">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-        <figure class="col" data-parallax-land-x="0" data-parallax-land-y="160">
-          <img src="http://placehold.it/300x300" alt="">
-          <figcaption>Caption that says something</figcaption>
-        </figure>
-      </div>
-
-      <h2>Periscope</h2>
-      <p>Not exactly parallax but has a feeling of it</p>
-      <div class="periscope">
-        <div class="tint">
-          <div class="promo-text">
-            <h3>Tuxedo</h3>
-            <p>Gray, Slim, Authentic Italian worn suit</p>
-            <a href="#" class="cta-button">Shop Now</a>
+          <div class="parallax landing row">
+            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="100">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="130">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="160">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
           </div>
         </div>
+
+        <h2>Periscope</h2>
+        <p>Not exactly parallax but has a feeling of it</p>
+        <div class="periscope">
+          <div class="tint">
+            <div class="promo-text">
+              <h3>Tuxedo</h3>
+              <p>Gray, Slim, Authentic Italian worn suit</p>
+              <a href="#" class="cta-button">Shop Now</a>
+            </div>
+          </div>
+        </div>
+
+        <h2>Floating Elements with scroll</h2>
+        <div class="parallax floating clearfix">
+          <div class="row">
+            <div class="floating-left col">
+              <img src="http://placehold.it/300x100" alt="">
+              <p>Yep these are floating elements</p>
+            </div>
+
+            <div class="col">
+              <img src="http://placehold.it/300x100" alt="">
+              <p>Yep these are floating elements</p>
+            </div>
+            
+            <div class="floating-right col">
+              <img src="http://placehold.it/300x100" alt="">
+              <p>Yep these are floating elements</p>
+            </div>
+          </div>
+        </div>
+
+      <!-- End Content Div -->
       </div>
-
-      <h2>Floating Elements with scroll</h2>
-      <div class="parallax floating row">
-        <div class="floating-left col">
-          <img src="http://placehold.it/300x100" alt="">
-          <p>Yep these are floating elements</p>
-        </div>
-
-        <div class="col">
-          <img src="http://placehold.it/300x100" alt="">
-          <p>Yep these are floating elements</p>
-        </div>
-        
-        <div class="floating-right col">
-          <img src="http://placehold.it/300x100" alt="">
-          <p>Yep these are floating elements</p>
-        </div>
-      </div>
-
     </div>
+
+    <footer>
+      <div class="row">
+        <div class="col-4">
+          <ul>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li><a href="">Blue</a></li>
+            <li><a href="">Green</a></li>
+            <li><a href="">Hazel</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li><a href="">Circle</a></li>
+            <li><a href="">Prism</a></li>
+            <li><a href="">Cube</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, vitae, eum iste quasi odit ipsum, voluptate officia explicabo tempore dolore nemo, animi quos asperiores laborum similique quas unde facilis sequi.</p>
+        </div>
+      </div>
+    </footer>
+
   </body>
 
 </html>

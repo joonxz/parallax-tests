@@ -187,17 +187,17 @@
       }
 
       .floating-left {
-        -webkit-transform: translateX(-50px);
+/*        -webkit-transform: translateX(-50px);
         -ms-transform: translateX(-50px);
         -o-transform: translateX(-50px);
-        transform: translateX(-50px);
+        transform: translateX(-50px);*/
       }
 
       .floating-right {
-        -webkit-transform: translateX(50px);
+       /* -webkit-transform: translateX(50px);
         -ms-transform: translateX(50px);
         -o-transform: translateX(50px);
-        transform: translateX(50px);
+        transform: translateX(50px);*/
       }
 
       .floating-middle {
@@ -254,13 +254,26 @@
               });
 
               var opacity = wScroll * .00055;
-              
-              console.log(wScroll, opacity);
 
               $('.tint').css({
                 'opacity': opacity
               });
             }
+
+            // -------------------- Floating Elements -----------------------
+            if (wScroll > $('.floating').offset().top - $(window).height()) {
+
+              var offset = Math.min(0, wScroll - $('.floating').offset().top + $(window).height() - 400);
+              
+              $('.floating-left').css({
+                'transform': 'translateX(' + offset + 'px)'
+              });
+
+              $('.floating-right').css({
+                'transform': 'translateX(' + Math.abs(offset) + 'px)'
+              });
+
+            }            
 
           });
         });
@@ -349,7 +362,7 @@
           <p>Yep these are floating elements</p>
         </div>
 
-        <div class="floating-middle col">
+        <div class="col">
           <img src="http://placehold.it/300x100" alt="">
           <p>Yep these are floating elements</p>
         </div>

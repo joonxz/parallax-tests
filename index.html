@@ -8,24 +8,38 @@
         text-align: center;
         margin: 0;
       }
+
+      header {
+        position: relative;
+        z-index: 2;
+      }
       
+      h1 {
+        margin-top: 0; 
+      }
+
       .wrapper {
         background-color: #fff;
+        padding-top: 30px;
         position: relative;
         z-index: 2;
       }
 
       .content {
-        margin:0 auto 350px;
+        background-color: #fff;
+        margin: 0 auto 350px;
         width: 960px;
       }
 
       .gradient-bg {
-        background-image: url("img/bg-gradient.png");
-        background-repeat: no-repeat;
-        background-size: auto 600px;
-        background-position: top center;
-        background-attachment: fixed; 
+        background: #e4f5fc;
+        background: -moz-linear-gradient(45deg,  #e4f5fc 0%, #bfe8f9 25%, #9fd8ef 62%, #2ab0ed 100%);
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#e4f5fc), color-stop(25%,#bfe8f9), color-stop(62%,#9fd8ef), color-stop(100%,#2ab0ed));
+        background: -webkit-linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+        background: -o-linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+        background: -ms-linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+        background: linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=1 );
         
         overflow: hidden;
         position: relative;
@@ -104,6 +118,15 @@
         margin: 0;
         padding: 10px;
         width: 25%;
+      }
+      .parallax {
+        position: relative;
+
+        transition: all 0.3s ease-in-out; 
+      }
+
+      .landing {
+        opacity: 0;
       }
 
       figure {
@@ -263,22 +286,23 @@
 
 
             // --------------- Traditional Parallax ------------------
-            $('div[data-parallax]').each(function () {
-              var paraValue = $(this).data('parallax');
+            if ($('header').height() > wScroll) {
+              $('div[data-parallax]').each(function () {
+                var paraValue = $(this).data('parallax');
 
-              $(this).css({
-                'transform' : 'translate(0px, '+ wScroll/paraValue +'%)'
+                $(this).css({
+                  'transform' : 'translate(0px, '+ wScroll/paraValue +'%)'
+                });
               });
-            });
-
-
+            };
+            
             // --------------- Landing Functions ----------------------
-            $('.landing figure[data-parallax-land-x]').each(function () {
-              var x = $(this).data('parallax-land-x');
-              var y = $(this).data('parallax-land-y');
+            $('.parallax.landing').each(function () {
               var el = $(this);
-
-              if (wScroll < $('.landing').offset().top - ($(window).height() / 1.5) ) {
+              var x = el.data('parallax-land-x');
+              var y = el.data('parallax-land-y');
+              
+              if (wScroll < el.offset().top - ($(window).height() / 1.5) ) {
                 el.css({
                   'transform': 'translate(' + x + 'px,' + y + 'px)',
                   'opacity': 0
@@ -346,46 +370,46 @@
           <h2>Landing Elements</h2>
           <p>The elements land in as you scroll</p>
 
-          <div class="parallax landing row">
-            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-100">
+          <div class="parallax landing row" data-parallax-land-x="0" data-parallax-land-y="-100">
+            <figure class="col">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
+            <figure class="col">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="-130">
-              <img src="http://placehold.it/300x300" alt="">
-              <figcaption>Caption that says something</figcaption>
-            </figure>
-          </div>
-
-          <div class="parallax landing row">
-            <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
-              <img src="http://placehold.it/300x300" alt="">
-              <figcaption>Caption that says something</figcaption>
-            </figure>
-            <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
-              <img src="http://placehold.it/300x300" alt="">
-              <figcaption>Caption that says something</figcaption>
-            </figure>
-            <figure class="col" data-parallax-land-x="-100" data-parallax-land-y="-130">
+            <figure class="col">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
           </div>
 
-          <div class="parallax landing row">
-            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="100">
+          <div class="parallax landing row" data-parallax-land-x="-140" data-parallax-land-y="0">
+            <figure class="col">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="130">
+            <figure class="col">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col" data-parallax-land-x="0" data-parallax-land-y="160">
+            <figure class="col">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+          </div>
+
+          <div class="parallax landing row" data-parallax-land-x="0" data-parallax-land-y="100">
+            <figure class="col">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col">
+              <img src="http://placehold.it/300x300" alt="">
+              <figcaption>Caption that says something</figcaption>
+            </figure>
+            <figure class="col">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>

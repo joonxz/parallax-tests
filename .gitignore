@@ -1,0 +1,5 @@
+# ignore design files
+*.sketch
+
+# ignore MAC
+.DS_STORE

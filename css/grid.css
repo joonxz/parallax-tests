@@ -1,0 +1,33 @@
+.row {
+  max-width: 960px;
+  float: left;
+}
+
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.col {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+
+.col img {
+  width: 100%;
+}
+
+.col-3 {
+  margin:0;
+  padding:5px;
+  width: 33.3%;
+}
+
+.col-4 {
+  margin: 0;
+  padding: 10px;
+  width: 25%;
+}

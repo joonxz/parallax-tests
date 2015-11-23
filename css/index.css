@@ -19,6 +19,7 @@ h1 {
   background-color: #fff;
   margin: 0 auto 350px;
   max-width: 960px;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -82,7 +83,6 @@ figure:hover figcaption {
 figure:hover img {
   transform: scale(1.1);
 }
-
 
 .floating {
   position: relative;

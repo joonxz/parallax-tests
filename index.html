@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Some parallax tests">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {
         font-family: arial, sans-serif;
@@ -11,6 +14,7 @@
 
       header {
         position: relative;
+        max-width: 960px;
         z-index: 2;
       }
       
@@ -28,7 +32,8 @@
       .content {
         background-color: #fff;
         margin: 0 auto 350px;
-        width: 960px;
+        max-width: 960px;
+        width: 100%;
       }
 
       .gradient-bg {
@@ -102,26 +107,41 @@
         clear: both;
       }
       
-      .row, .col {
+      .row {
+        max-width: 960px;
         float: left;
       }
 
-      .col {
-        margin: 10px;
+      .row:after {
+          content: "";
+          clear: both;
+          display: block;
       }
 
-      .col-4 {
+      .col {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         float: left;
+      }
+
+      .col img {
+        width: 100%;
+      }
+
+      .col-3 {
+        margin:0;
+        padding:5px;
+        width: 33.3%;
+      }
+
+      .col-4 {
         margin: 0;
         padding: 10px;
         width: 25%;
       }
       .parallax {
         position: relative;
-
         transition: all 0.3s ease-in-out; 
       }
 
@@ -145,6 +165,12 @@
         position: absolute;
         
         left:-100%;
+      }
+
+      @media only screen and (max-width: 700px) {
+        figcaption {
+          display: none;
+        }
       }
       
       figure img {
@@ -250,7 +276,7 @@
         background-color: #939393;
         position: relative;
         left: 50%;
-        width: 960px;
+        max-width: 960px;
         
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
@@ -371,45 +397,45 @@
           <p>The elements land in as you scroll</p>
 
           <div class="parallax landing row" data-parallax-land-x="0" data-parallax-land-y="-100">
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
           </div>
 
           <div class="parallax landing row" data-parallax-land-x="-140" data-parallax-land-y="0">
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
           </div>
 
           <div class="parallax landing row" data-parallax-land-x="0" data-parallax-land-y="100">
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
-            <figure class="col">
+            <figure class="col col-3">
               <img src="http://placehold.it/300x300" alt="">
               <figcaption>Caption that says something</figcaption>
             </figure>
@@ -431,17 +457,17 @@
         <h2>Floating Elements with scroll</h2>
         <div class="parallax floating clearfix">
           <div class="row">
-            <div class="floating-left col">
+            <div class="floating-left col col-3">
               <img src="http://placehold.it/300x100" alt="">
               <p>Yep these are floating elements</p>
             </div>
 
-            <div class="col">
+            <div class="col col-3">
               <img src="http://placehold.it/300x100" alt="">
               <p>Yep these are floating elements</p>
             </div>
             
-            <div class="floating-right col">
+            <div class="floating-right col col-3">
               <img src="http://placehold.it/300x100" alt="">
               <p>Yep these are floating elements</p>
             </div>
@@ -454,28 +480,28 @@
 
     <footer>
       <div class="row">
-        <div class="col-4">
+        <div class="col col-4">
           <ul>
             <li><a href="">Twitter</a></li>
             <li><a href="">Facebook</a></li>
             <li><a href="">Instagram</a></li>
           </ul>
         </div>
-        <div class="col-4">
+        <div class="col col-4">
           <ul>
             <li><a href="">Blue</a></li>
             <li><a href="">Green</a></li>
             <li><a href="">Hazel</a></li>
           </ul>
         </div>
-        <div class="col-4">
+        <div class="col col-4">
           <ul>
             <li><a href="">Circle</a></li>
             <li><a href="">Prism</a></li>
             <li><a href="">Cube</a></li>
           </ul>
         </div>
-        <div class="col-4">
+        <div class="col col-4">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, vitae, eum iste quasi odit ipsum, voluptate officia explicabo tempore dolore nemo, animi quos asperiores laborum similique quas unde facilis sequi.</p>
         </div>
       </div>

@@ -14,7 +14,7 @@ echo "--copy from temp and paste to current dir--"
 cp -r ~/Desktop/temp/. .
 
 echo "--remove temp dir from desktop--"
-rm -R ~/Desktop/temp/
+rm -f -R ~/Desktop/temp/
 
 echo "--git add--"
 git add -A

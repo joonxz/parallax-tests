@@ -8,7 +8,7 @@ echo "--copy public dir contents to temp dir--"
 cp -r . ~/Desktop/temp
 
 echo "--switch to master branch--"
-git checkout master
+git checkout gh-pages
 
 echo "--copy from temp and paste to current dir--"
 cp -r ~/Desktop/temp/. .

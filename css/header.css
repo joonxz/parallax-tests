@@ -1,0 +1,114 @@
+header {
+  position: relative;
+  /*max-width: 960px;*/
+  z-index: 2;
+}
+
+.gradient-bg {
+  background: #e4f5fc;
+  background: -moz-linear-gradient(45deg,  #e4f5fc 0%, #bfe8f9 25%, #9fd8ef 62%, #2ab0ed 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#e4f5fc), color-stop(25%,#bfe8f9), color-stop(62%,#9fd8ef), color-stop(100%,#2ab0ed));
+  background: -webkit-linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+  background: -o-linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+  background: -ms-linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+  background: linear-gradient(45deg,  #e4f5fc 0%,#bfe8f9 25%,#9fd8ef 62%,#2ab0ed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=1 );
+  
+  overflow: hidden;
+  position: relative;
+  height: 600px;
+  
+}
+
+@media only screen and (max-width: 700px) {
+  .gradient-bg {
+    height: 300px;
+  }
+}
+
+.back-cloud {
+  background-image: url("../img/back-cloud.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  
+  margin-left: 80px;
+  position: absolute;
+  height: 227px;
+  width: 388px;
+}
+
+@media only screen and (max-width: 700px) {
+  .back-cloud {
+    margin-left: 40px;
+    top: 50px;
+    width: 200px;
+  }
+}
+
+.logo {
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  
+  left: 50%;
+  margin-top: -90px;
+  margin-left: -215px;
+  position: absolute;
+  top: 50%;
+  height: 108px;
+  width: 406px;
+}
+
+@media only screen and (max-width: 700px) {
+  .logo {
+    margin-top: -30px;
+    margin-left: -100px;
+    width: 200px;
+  }
+}
+
+.fore-cloud {
+  background-image: url("../img/fore-cloud.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+
+  left: 50%;
+  top: 220px;
+  margin-left: 100px;
+  position: absolute;
+  height: 127px;
+  width: 188px;
+}
+
+@media only screen and (max-width: 700px) {
+  .fore-cloud {
+    top: 50%;
+    margin-left: 20px;
+    width: 100px;
+  }
+}
+
+.doug {
+  background-image: url("../img/doug.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+
+  bottom: -300px;
+  left: 50%;
+  /*margin-left: 100px;*/
+  position: absolute;
+  height: 500px;
+  width: 315px;
+}
+
+@media only screen and (max-width: 700px) {
+  .doug {
+    /*margin-left: 20px;*/
+    height: 400px;
+    width: 200px;
+  }
+}

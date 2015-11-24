@@ -1,0 +1,22 @@
+footer {
+  background-color: #939393;
+  bottom: 0;
+  color: #fff;
+  clear: both;
+  position: fixed;
+  text-align: left;
+  width: 100%;
+  z-index: 1;
+}
+
+footer .row {
+  background-color: #939393;
+  position: relative;
+  left: 50%;
+  max-width: 960px;
+  
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}

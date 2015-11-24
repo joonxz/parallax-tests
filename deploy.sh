@@ -11,7 +11,7 @@ echo "--switch to master branch--"
 git checkout gh-pages
 
 echo "--copy from temp and paste to current dir--"
-cp -r ~/Desktop/temp/. .
+cp -u ~/Desktop/temp/. .
 
 echo "--remove temp dir from desktop--"
 rm -f -R ~/Desktop/temp/

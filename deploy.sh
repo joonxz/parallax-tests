@@ -5,13 +5,13 @@ echo "--create temp folder--"
 mkdir ~/Desktop/temp/
 
 echo "--copy public dir contents to temp dir--"
-cp -f . ~/Desktop/temp/
+rsync -v -r --exclude=".*"  . ~/Desktop/temp
 
 echo "--switch to gh-pages branch--"
 git checkout gh-pages
 
 echo "--copy from temp and paste to current dir--"
-cp -f ~/Desktop/temp/. .
+rsync -v -r ~/Desktop/temp .
 
 echo "--remove temp dir from desktop--"
 rm -f -R ~/Desktop/temp/

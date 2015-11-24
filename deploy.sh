@@ -5,7 +5,7 @@ echo "--create temp folder--"
 mkdir ~/Desktop/temp
 
 echo "--copy public dir contents to temp dir--"
-cp -r public/. ~/Desktop/temp
+cp -r . ~/Desktop/temp
 
 echo "--switch to master branch--"
 git checkout master
